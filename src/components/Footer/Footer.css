@@ -1,0 +1,78 @@
+.footer {
+  background: linear-gradient(to right, #82f182, #fcef7d);
+  padding: 25px 30px;
+  border-top: 3px solid #4caf50;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.email-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.footer-email a {
+  color: #2c5f2d;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer-email a:hover {
+  color: #1e3d1f;
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c5f2d;
+  font-size: 0.9rem;
+}
+
+.selo-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-email {
+    flex-direction: row; /* Alterado de column para row */
+    gap: 8px;
+    align-items: center;
+  }
+
+  .footer-copyright {
+    order: 2; /* Garante que o copyright fique embaixo */
+    margin-top: 10px;
+  }
+
+  .email-icon {
+    width: 20px; /* Tamanho reduzido para mobile */
+    height: 20px;
+  }
+
+  .footer-email a {
+    font-size: 0.9rem; /* Texto um pouco menor */
+  }
+}
