@@ -1,0 +1,39 @@
+.menu-button {
+  background: #25d366; /* Fundo verde */
+  border: 2px solid #25d366; /* Bordas verdes */
+  border-radius: 8px; /* Bordas arredondadas */
+  font-size: 0.9rem;
+  margin: 0 9.5px;
+  cursor: pointer;
+  color: #ffd700; /* Fonte amarela */
+  padding: 8px 16px;
+  transition: all 0.3s ease; /* Transição suave */
+}
+
+.menu-button:hover {
+  background: #4ddfa0; /* Fundo verde mais claro */
+  border-color: #4ddfa0; /* Bordas mais claras */
+  color: #ffec99; /* Fonte amarela mais clara */
+  box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.3); /* Sombreamento à esquerda e embaixo */
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .menu-button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    text-align: center; /* Centralizando texto */
+    border-radius: 6px;
+    background: #25d366; /* Mantendo cor desktop */
+    color: #ffd700; /* Mantendo cor desktop */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Sombra uniforme */
+    border: none; /* Removendo borda mobile */
+  }
+
+  .menu-button:hover {
+    background: #4ddfa0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+  }
+}

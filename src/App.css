@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+  background: rgb(249, 246, 137);
+  background: linear-gradient(
+    90deg,
+    rgba(249, 246, 137, 1) 0%,
+    rgba(195, 247, 75, 0.737) 100%
+  );
+  min-height: 100vh;
+}
+
+.App-header {
+  background-color: #c9e9c1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.agendar-button {
+  background-color: #25d366; /* Verde do WhatsApp */
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.agendar-button:hover {
+  background-color: #1ebe57;
+}

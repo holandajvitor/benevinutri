@@ -1,0 +1,124 @@
+/* Estilo unificado com AboutMe */
+.faq-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(249, 246, 137, 1) 0%,
+    rgba(195, 247, 75, 0.737) 100%
+  );
+  padding: 10px;
+  margin: 100px 0 50px;
+  margin-top: 0%;
+}
+
+.faq-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: -20px 19px 19px 4px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: -20px 19px 19px 4px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: -20px 19px 19px 4px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Texto alinhado à esquerda */
+.faq-content {
+  text-align: left;
+}
+
+/* Estilo das perguntas */
+.question {
+  background: linear-gradient(to right, #4caf50, #cec361);
+  color: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.question:hover {
+  transform: translateX(10px);
+}
+
+.question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  text-shadow: 2px 2px 4px rgba(0, 100, 0, 0.5);
+}
+
+/* Botão +/- */
+.toggle-button {
+  background: #ffeb3b;
+  border: none;
+  color: #2c5f2d;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Respostas */
+.answer {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 10px 0;
+  border-radius: 8px;
+  color: #333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Botão de agendamento */
+.faq-button-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .faq-section {
+    margin: 50px 0 20px; /* Reduz margens top/bottom */
+    padding: 10px;
+    min-height: auto; /* Remove altura fixa */
+  }
+
+  .faq-card {
+    padding: 20px 15px; /* Reduz padding interno */
+  }
+
+  .faq-button-container {
+    margin-top: 25px; /* Margem menor acima do botão */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 0 10px;
+  }
+
+  .question {
+    padding: 15px; /* Reduz espaçamento interno */
+    margin: 10px 0; /* Reduz margens entre itens */
+  }
+
+  .answer {
+    padding: 15px;
+    margin: 8px 0;
+    font-size: 1rem; /* Texto um pouco menor */
+  }
+
+  .toggle-button {
+    width: 25px;
+    height: 25px;
+    font-size: 1.2rem;
+  }
+}
