@@ -1,6 +1,5 @@
 # BENEVINUTRI - Plataforma de Nutrição Online
 
-![Banner](public/assets/images/banner.png)
 
 Plataforma profissional para atendimento nutricional online, com foco em experiência do usuário e conversão de clientes.
 
