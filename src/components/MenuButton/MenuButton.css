@@ -1,39 +1,52 @@
 .menu-button {
-  background: #25d366; /* Fundo verde */
-  border: 2px solid #25d366; /* Bordas verdes */
-  border-radius: 8px; /* Bordas arredondadas */
-  font-size: 0.9rem;
-  margin: 0 9.5px;
+  position: relative;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 10px 14px;
   cursor: pointer;
-  color: #ffd700; /* Fonte amarela */
-  padding: 8px 16px;
-  transition: all 0.3s ease; /* Transição suave */
+  transition: color 0.3s var(--ease);
+}
+
+/* Sublinhado fino que cresce do centro no hover */
+.menu-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 1.5px;
+  background: var(--clay);
+  transform: translateX(-50%);
+  transition: width 0.3s var(--ease);
 }
 
 .menu-button:hover {
-  background: #4ddfa0; /* Fundo verde mais claro */
-  border-color: #4ddfa0; /* Bordas mais claras */
-  color: #ffec99; /* Fonte amarela mais clara */
-  box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.3); /* Sombreamento à esquerda e embaixo */
-  font-weight: bold;
+  color: var(--forest);
 }
 
-@media (max-width: 768px) {
+.menu-button:hover::after {
+  width: calc(100% - 28px);
+}
+
+@media (max-width: 860px) {
   .menu-button {
     width: 100%;
-    margin: 8px 0;
-    padding: 12px;
-    text-align: center; /* Centralizando texto */
-    border-radius: 6px;
-    background: #25d366; /* Mantendo cor desktop */
-    color: #ffd700; /* Mantendo cor desktop */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Sombra uniforme */
-    border: none; /* Removendo borda mobile */
+    text-align: left;
+    padding: 14px 6px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+  }
+
+  .menu-button::after {
+    display: none;
   }
 
   .menu-button:hover {
-    background: #4ddfa0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    transform: translateY(-2px);
+    color: var(--clay-deep);
   }
 }

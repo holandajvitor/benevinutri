@@ -1,78 +1,140 @@
 .footer {
-  background: linear-gradient(to right, #82f182, #fcef7d);
-  padding: 25px 30px;
-  border-top: 3px solid #4caf50;
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  background: var(--forest);
+  color: var(--cream);
 }
 
-.footer-content {
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  gap: 48px;
+  padding-top: 72px;
+  padding-bottom: 56px;
+}
+
+/* ---- Marca ---- */
+.footer-brand {
+  max-width: 34ch;
+}
+
+.footer-wordmark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.footer-tag {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-top: 8px;
+}
+
+.footer-desc {
+  margin-top: 20px;
+  color: rgba(243, 238, 226, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* ---- Colunas ---- */
+.footer-col-title {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 18px;
+}
+
+.footer-nav,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav a,
+.footer-link {
+  color: rgba(243, 238, 226, 0.82);
+  font-size: 0.98rem;
+  width: fit-content;
+  transition: color 0.3s var(--ease);
+}
+
+.footer-nav a {
+  position: relative;
+}
+
+.footer-nav a:hover,
+.footer-link:hover {
+  color: var(--white);
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-ico {
+  width: 18px;
+  height: 18px;
+  color: var(--sage);
+  flex-shrink: 0;
+}
+
+/* ---- Barra inferior ---- */
+.footer-bottom {
+  border-top: 1px solid rgba(156, 175, 150, 0.22);
+}
+
+.footer-bottom-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 12px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  font-size: 0.85rem;
+  color: rgba(243, 238, 226, 0.6);
 }
 
-.footer-email {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.footer-credit {
+  color: var(--sage);
 }
 
-.email-icon {
-  width: 25px;
-  height: 25px;
+/* ---- Responsivo ---- */
+@media (max-width: 860px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 }
 
-.footer-email a {
-  color: #2c5f2d;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    padding-top: 56px;
+    padding-bottom: 40px;
+  }
 
-.footer-email a:hover {
-  color: #1e3d1f;
-  text-decoration: underline;
-}
-
-.footer-copyright {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #2c5f2d;
-  font-size: 0.9rem;
-}
-
-.selo-icon {
-  width: 20px;
-  height: 20px;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .footer-content {
+  .footer-bottom-inner {
     flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-
-  .footer-email {
-    flex-direction: row; /* Alterado de column para row */
-    gap: 8px;
-    align-items: center;
-  }
-
-  .footer-copyright {
-    order: 2; /* Garante que o copyright fique embaixo */
-    margin-top: 10px;
-  }
-
-  .email-icon {
-    width: 20px; /* Tamanho reduzido para mobile */
-    height: 20px;
-  }
-
-  .footer-email a {
-    font-size: 0.9rem; /* Texto um pouco menor */
+    align-items: flex-start;
+    gap: 6px;
   }
 }

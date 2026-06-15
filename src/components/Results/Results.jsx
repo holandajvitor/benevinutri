@@ -56,10 +56,23 @@ function Results() {
 
   return (
     <section id="results" className="results-section">
-      <h1>Resultados alcançados através do Método</h1>
+      <div className="container results-head">
+        <span className="eyebrow is-centered" data-reveal>
+          O método na prática
+        </span>
+        <h2 className="section-title results-title" data-reveal>
+          Resultados <em>reais</em> de quem confiou no processo
+        </h2>
+        <p className="results-sub" data-reveal>
+          Transformações construídas com consistência, sem atalhos e sem
+          sofrimento. Arraste para ver mais.
+        </p>
+      </div>
+
       <div
         className="carousel-container"
         ref={carouselRef}
+        data-reveal
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -67,6 +80,7 @@ function Results() {
         {/* Versão Desktop */}
         <button
           className="arrow-button prev"
+          aria-label="Anterior"
           onClick={() =>
             setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))
           }
@@ -97,6 +111,7 @@ function Results() {
 
         <button
           className="arrow-button next"
+          aria-label="Próximo"
           onClick={() =>
             setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))
           }
@@ -104,12 +119,14 @@ function Results() {
           &#10095;
         </button>
 
-        {/* Indicadores somente visuais */}
+        {/* Indicadores */}
         <div className="scroll-indicator">
           {images.map((_, index) => (
-            <div
+            <button
               key={index}
               className={`dot ${index === currentIndex ? "active" : ""}`}
+              aria-label={`Ir para o resultado ${index + 1}`}
+              onClick={() => setCurrentIndex(index)}
             />
           ))}
         </div>

@@ -42,27 +42,54 @@ function FAQ() {
     {
       question: "Quais os diferenciais no atendimento?",
       answer:
-        "Meu método combina: ▶ Autonomia alimentar (sem dietas restritivas) ▶ Foco em hábitos sustentáveis ▶ Zero medicamentos ▶ Educação nutricional prática ▶ Acompanhamento humanizado",
+        "Meu método combina autonomia alimentar (sem dietas restritivas), foco em hábitos sustentáveis, zero medicamentos, educação nutricional prática e acompanhamento humanizado.",
     },
   ];
 
   return (
     <section id="faq" className="faq-section">
-      <div className="faq-card">
-        <h1>Perguntas Frequentes</h1>
+      <div className="container faq-layout">
+        <div className="faq-head">
+          <span className="eyebrow" data-reveal>
+            Perguntas frequentes
+          </span>
+          <h2
+            className="section-title faq-title"
+            data-reveal
+            style={{ "--reveal-delay": "80ms" }}
+          >
+            Ainda com <em>dúvidas?</em>
+          </h2>
+          <p className="faq-sub" data-reveal style={{ "--reveal-delay": "140ms" }}>
+            Reuni as perguntas que mais escuto antes da primeira consulta. Se
+            ficar faltando alguma, é só me chamar.
+          </p>
+          <div
+            className="faq-cta-aside"
+            data-reveal
+            style={{ "--reveal-delay": "200ms" }}
+          >
+            <WhatsappButton link={whatsappLink} />
+          </div>
+        </div>
 
-        <div className="faq-items">
+        <div className="faq-items" data-reveal>
           {faqItems.map((item, index) => (
-            <div className="faq-item" key={index}>
-              <div
+            <div
+              className={`faq-item ${openIndex === index ? "open" : ""}`}
+              key={index}
+            >
+              <button
+                type="button"
                 className="question"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
               >
                 <h3>{item.question}</h3>
-                <button className="toggle-button">
+                <span className="toggle-button" aria-hidden="true">
                   {openIndex === index ? "−" : "+"}
-                </button>
-              </div>
+                </span>
+              </button>
 
               {openIndex === index && (
                 <div className="answer">
@@ -75,10 +102,6 @@ function FAQ() {
               )}
             </div>
           ))}
-        </div>
-
-        <div className="faq-button-container">
-          <WhatsappButton link={whatsappLink} />
         </div>
       </div>
     </section>

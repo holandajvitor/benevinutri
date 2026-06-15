@@ -1,22 +1,33 @@
 .instagram-button {
-  background: linear-gradient(45deg, #405de6, #833ab4, #e1306c);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  transition: all 0.3s ease;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--forest);
+  border: 1.5px solid var(--line-strong);
+  padding: 14px 24px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease),
+    background 0.35s var(--ease);
 }
 
 .instagram-button:hover {
+  border-color: var(--forest);
+  background: rgba(31, 61, 45, 0.05);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-button:active {
+  transform: translateY(0);
 }
 
 .instagram-icon {
-  height: 20px;
-  margin-right: 8px;
+  height: 18px;
+  width: auto;
 }

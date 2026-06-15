@@ -1,9 +1,212 @@
+/* ============================================================
+   Benevinutri — sistema de design
+   Estética: clínica de bem-estar / botânico editorial.
+   Paleta sóbria: verde-mata profundo, sálvia, papel creme e
+   um único acento terracota. Tipografia: Newsreader (display)
+   + Hanken Grotesk (texto).
+   ============================================================ */
+
+:root {
+  /* ---- Cor ---- */
+  --ink: #1b2a20; /* texto principal, quase-preto esverdeado */
+  --ink-soft: #46544b; /* texto secundário */
+  --forest: #1f3d2d; /* verde primário profundo */
+  --pine: #2c5440; /* verde médio */
+  --moss: #5c7d64; /* verde acinzentado */
+  --sage: #9caf96; /* sálvia clara */
+  --line: #d8dccf; /* linha fina sobre o creme */
+  --line-strong: #c4cbb6;
+  --cream: #f3eee2; /* fundo da página (papel) */
+  --cream-2: #ece4d3; /* creme mais fundo */
+  --paper: #fbf8f1; /* papel dos cartões */
+  --clay: #bd6a45; /* acento terracota (uso pontual) */
+  --clay-deep: #a4593a;
+  --clay-soft: #ecd9cc;
+  --white: #ffffff;
+
+  /* ---- Tipografia ---- */
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+
+  /* ---- Sombras (suaves, em camadas) ---- */
+  --shadow-sm: 0 1px 2px rgba(27, 42, 32, 0.06),
+    0 4px 10px rgba(27, 42, 32, 0.05);
+  --shadow-md: 0 6px 16px rgba(27, 42, 32, 0.08),
+    0 18px 44px rgba(27, 42, 32, 0.1);
+  --shadow-lg: 0 14px 34px rgba(27, 42, 32, 0.12),
+    0 34px 80px rgba(27, 42, 32, 0.16);
+
+  /* ---- Raio ---- */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 26px;
+  --r-pill: 999px;
+
+  /* ---- Layout ---- */
+  --maxw: 1180px;
+  --header-h: 84px;
+
+  /* ---- Transições ---- */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background-color: var(--cream);
+  /* Atmosfera: brilhos diagonais sutis em vez de cor chapada */
+  background-image: radial-gradient(
+      1100px 620px at 84% -8%,
+      rgba(44, 84, 64, 0.07),
+      transparent 60%
+    ),
+    radial-gradient(
+      820px 520px at -10% 14%,
+      rgba(189, 106, 69, 0.05),
+      transparent 55%
+    );
+  background-attachment: fixed;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden; /* Evita barras de rolagem horizontais */
+  text-rendering: optimizeLegibility;
+}
+
+/* Grão de filme bem leve para dar textura de papel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+/* ---- Utilitários ---- */
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+/* Rótulo "sobrancelha": pequeno, caixa-alta, espaçado — sinal editorial */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay-deep);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.eyebrow.is-centered::after {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+/* Título de seção em serifa editorial */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 1.3rem + 3vw, 3.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--pine);
+}
+
+/* ---- Revelação ao rolar (progressive enhancement) ---- */
+.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.has-js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .has-js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

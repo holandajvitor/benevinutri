@@ -1,33 +1,49 @@
 .whatsapp-button {
-  background-color: #25d366;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  transition: background 0.3s;
+  justify-content: center;
+  gap: 10px;
+  background: var(--forest);
+  color: var(--cream);
+  border: 1.5px solid var(--forest);
+  padding: 14px 24px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--ease), background 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
 }
 
 .whatsapp-button:hover {
-  background-color: #1ebe57;
+  background: var(--pine);
+  border-color: var(--pine);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.whatsapp-button:active {
+  transform: translateY(0);
 }
 
 .whatsapp-icon {
-  height: 20px;
-  margin-right: 8px;
+  height: 18px;
+  width: auto;
+  /* Ícone original é colorido; deixa em tom claro para combinar com o botão sóbrio */
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
 }
 
-/* Mantém o estilo mobile apenas no menu */
+/* Estilo do botão dentro do menu mobile */
 .whatsapp-button.mobile {
   width: 100%;
-  margin-top: 15px;
   justify-content: center;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 861px) {
   .whatsapp-button.mobile {
     display: none;
   }

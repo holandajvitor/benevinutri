@@ -1,36 +1,59 @@
 .App {
-  text-align: center;
-  background: rgb(249, 246, 137);
-  background: linear-gradient(
-    90deg,
-    rgba(249, 246, 137, 1) 0%,
-    rgba(195, 247, 75, 0.737) 100%
-  );
+  position: relative;
+  z-index: 2; /* acima do grão de papel em body::before */
   min-height: 100vh;
+  text-align: left;
 }
 
-.App-header {
-  background-color: #c9e9c1;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Botão de ação reutilizável — preenchido (verde-mata) e fantasma */
+.btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.agendar-button {
-  background-color: #25d366; /* Verde do WhatsApp */
-  color: white;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  padding: 14px 24px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid transparent;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  transition: transform 0.35s var(--ease), background 0.35s var(--ease),
+    color 0.35s var(--ease), box-shadow 0.35s var(--ease),
+    border-color 0.35s var(--ease);
 }
 
-.agendar-button:hover {
-  background-color: #1ebe57;
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--forest);
+  color: var(--cream);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--pine);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--forest);
+  border-color: var(--line-strong);
+}
+
+.btn-ghost:hover {
+  border-color: var(--forest);
+  background: rgba(31, 61, 45, 0.05);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  height: 18px;
+  width: auto;
 }
